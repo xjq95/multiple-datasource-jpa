@@ -1,0 +1,39 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  output:
+    ansi:
+      enabled: ALWAYS
+  h2:
+    console:
+      enabled: true
+datasource-config:
+  db1:
+    entity-packages: com.github.xjq95.multipledatasourcejpa.entity.db1
+    dsp:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:db1;MODE=MySql;DB_CLOSE_DELAY=-1
+      username: sa
+      password: sa
+      schema: sql/db1/create.sql
+      data:
+        - sql/db1/test.sql
+      sql-script-encoding: utf-8
+      continue-on-error: false
+  db2:
+    entity-packages: com.github.xjq95.multipledatasourcejpa.entity.db2
+    dsp:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:db2;MODE=MySql;DB_CLOSE_DELAY=-1
+      username: sa
+      password: sa
+      schema: sql/db2/create.sql
+      data:
+        - sql/db2/test.sql
+      continue-on-error: false
